@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>O ciclo da água</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="demo.css">
+</head>
+<body>
+<div class="wrap">
+  <main class="slide">
+    <div class="kicker"><span><b data-t="subject">Ciências</b> · <span data-t="lesson">Aula 4</span></span><span data-t="class">Turma 7B</span></div>
+    <h1 data-t="h1">O ciclo da água</h1>
+    <div class="body">
+      <svg viewBox="0 0 640 420" role="img" aria-label="">
+        <defs>
+          <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#dcecfb"/><stop offset="1" stop-color="#f4f9fe"/></linearGradient>
+          <marker id="arrow" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#3b6fd8"/></marker>
+        </defs>
+        <rect width="640" height="420" rx="18" fill="url(#sky)"/>
+        <!-- sun -->
+        <g transform="translate(92 86)">
+          <circle r="34" fill="#f7c948"/>
+          <g stroke="#f7c948" stroke-width="5" stroke-linecap="round">
+            <line x1="0" y1="-50" x2="0" y2="-62"/><line x1="0" y1="50" x2="0" y2="62"/><line x1="-50" y1="0" x2="-62" y2="0"/><line x1="50" y1="0" x2="62" y2="0"/>
+            <line x1="35" y1="35" x2="44" y2="44"/><line x1="-35" y1="35" x2="-44" y2="44"/><line x1="35" y1="-35" x2="44" y2="-44"/><line x1="-35" y1="-35" x2="-44" y2="-44"/>
+          </g>
+        </g>
+        <!-- cloud -->
+        <g fill="#ffffff" stroke="#c9dcef" stroke-width="2">
+          <path d="M300 112 a30 30 0 0 1 52 -24 a38 38 0 0 1 72 8 a28 28 0 0 1 6 56 h-124 a24 24 0 0 1 -6 -40 z"/>
+        </g>
+        <!-- rain -->
+        <g stroke="#6aa6e0" stroke-width="4" stroke-linecap="round">
+          <line x1="402" y1="172" x2="394" y2="196"/><line x1="428" y1="176" x2="420" y2="200"/><line x1="454" y1="170" x2="446" y2="194"/>
+          <line x1="415" y1="208" x2="407" y2="232"/><line x1="441" y1="212" x2="433" y2="236"/>
+        </g>
+        <!-- mountains -->
+        <path d="M360 330 L470 196 L540 270 L580 226 L640 300 L640 330 z" fill="#9db4c8"/>
+        <path d="M470 196 L494 226 L476 222 L462 236 L452 218 z" fill="#ffffff"/>
+        <!-- land and sea -->
+        <path d="M0 330 C120 318 220 334 330 324 C420 316 520 330 640 322 L640 420 L0 420 z" fill="#a9d4a0"/>
+        <path d="M0 340 C70 334 150 344 250 338 L250 420 L0 420 z" fill="#8ec3ea"/>
+        <path d="M18 362 q14 -6 28 0 t28 0 M120 384 q14 -6 28 0 t28 0 M60 400 q14 -6 28 0 t28 0" fill="none" stroke="#ffffff" stroke-width="3" stroke-linecap="round" opacity=".8"/>
+        <!-- river -->
+        <path d="M520 300 C470 320 420 330 360 334 C310 338 280 342 250 344" fill="none" stroke="#8ec3ea" stroke-width="10" stroke-linecap="round"/>
+        <!-- arrows -->
+        <g fill="none" stroke="#3b6fd8" stroke-width="3" stroke-dasharray="8 7" marker-end="url(#arrow)">
+          <path d="M150 318 C170 240 220 170 290 140"/>
+          <path d="M530 312 C470 360 330 376 200 362"/>
+        </g>
+        <g font-size="17" font-weight="600" fill="#1f2430">
+          <text x="136" y="226" data-t="evaporation">Evaporação</text>
+          <text x="318" y="64" data-t="condensation">Condensação</text>
+          <text x="470" y="160" data-t="precipitation">Precipitação</text>
+          <text x="330" y="398" data-t="runoff">Escoamento</text>
+        </g>
+      </svg>
+      <ol class="steps">
+        <li><span class="n">1</span><div><h3 data-t="s1">Evaporação</h3><p data-t="s1p">O calor do sol transforma a água dos mares e rios em vapor.</p></div></li>
+        <li><span class="n">2</span><div><h3 data-t="s2">Condensação</h3><p data-t="s2p">No alto, o vapor esfria e forma as nuvens.</p></div></li>
+        <li><span class="n">3</span><div><h3 data-t="s3">Precipitação</h3><p data-t="s3p">As gotas crescem e caem como chuva, neve ou granizo.</p></div></li>
+        <li><span class="n">4</span><div><h3 data-t="s4">Escoamento</h3><p data-t="s4p">A água corre pelos rios e pelo solo e volta ao mar.</p></div></li>
+      </ol>
+    </div>
+  </main>
+</div>
+<script>
+window.T = {
+  en: { title: 'The water cycle', subject: 'Science', lesson: 'Lesson 4', 'class': 'Class 7B', h1: 'The water cycle',
+    evaporation: 'Evaporation', condensation: 'Condensation', precipitation: 'Precipitation', runoff: 'Runoff',
+    s1: 'Evaporation', s1p: 'The sun heats the water in seas and rivers and turns it into vapour.',
+    s2: 'Condensation', s2p: 'High up, the vapour cools down and forms clouds.',
+    s3: 'Precipitation', s3p: 'Droplets grow and fall as rain, snow or hail.',
+    s4: 'Runoff', s4p: 'Water flows through rivers and the ground and back to the sea.' },
+  es: { title: 'El ciclo del agua', subject: 'Ciencias', lesson: 'Clase 4', 'class': 'Grupo 7B', h1: 'El ciclo del agua',
+    evaporation: 'Evaporación', condensation: 'Condensación', precipitation: 'Precipitación', runoff: 'Escorrentía',
+    s1: 'Evaporación', s1p: 'El calor del sol convierte el agua de mares y ríos en vapor.',
+    s2: 'Condensación', s2p: 'En lo alto, el vapor se enfría y forma las nubes.',
+    s3: 'Precipitación', s3p: 'Las gotas crecen y caen como lluvia, nieve o granizo.',
+    s4: 'Escorrentía', s4p: 'El agua corre por ríos y suelos y vuelve al mar.' }
+};
+</script>
+<script src="demo.js"></script>
+</body>
+</html>

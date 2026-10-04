@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Funções do 2º grau</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="demo.css">
+</head>
+<body>
+<div class="wrap">
+  <main class="sheet">
+    <div class="head"><span data-t="course">Matemática · Lista 3</span><span data-t="page">Página 2 de 4</span></div>
+    <h1 data-t="h1">Funções do 2º grau</h1>
+    <p data-t="p1">Uma função do 2º grau tem a forma <i>f</i>(<i>x</i>) = <i>ax</i>² + <i>bx</i> + <i>c</i>, com <i>a</i> ≠ 0. O gráfico é uma parábola: virada para cima quando <i>a</i> &gt; 0 e para baixo quando <i>a</i> &lt; 0.</p>
+    <p data-t="p2">As raízes são os valores de <i>x</i> em que a parábola cruza o eixo horizontal, e o vértice é o seu ponto mais baixo (ou mais alto).</p>
+    <div class="formula">f(x) = x² − 4x + 3</div>
+    <div class="split">
+      <svg viewBox="0 0 320 280" role="img" aria-label="">
+        <g id="grid" stroke="#e6e9ef" stroke-width="1"></g>
+        <g stroke="#1f2430" stroke-width="1.6">
+          <line x1="20" y1="214" x2="306" y2="214"/>
+          <line x1="70" y1="12" x2="70" y2="268"/>
+        </g>
+        <g font-size="12" fill="#667085" id="ticks"></g>
+        <path id="curve" fill="none" stroke="#3b6fd8" stroke-width="3" stroke-linecap="round"/>
+        <text x="296" y="230" font-size="14" font-style="italic" fill="#1f2430">x</text>
+        <text x="78" y="22" font-size="14" font-style="italic" fill="#1f2430">y</text>
+      </svg>
+      <div>
+        <h2 data-t="ex">Exercícios</h2>
+        <ol>
+          <li><span data-t="e1">Encontre as raízes de <i>f</i>(<i>x</i>).</span><span class="answer"></span></li>
+          <li><span data-t="e2">Qual é o vértice da parábola?</span><span class="answer"></span></li>
+          <li><span data-t="e3">Para quais valores de <i>x</i> temos <i>f</i>(<i>x</i>) &lt; 0?</span><span class="answer"></span></li>
+        </ol>
+      </div>
+    </div>
+  </main>
+</div>
+<script>
+// The graph of x² − 4x + 3 for x in [-1, 5]: 50 px per unit, origin at (70, 214).
+(function () {
+  var ox = 70, oy = 214, u = 25, svg = 'http://www.w3.org/2000/svg';
+  var grid = document.getElementById('grid'), ticks = document.getElementById('ticks'), d = '';
+  for (var gx = -2; gx <= 9; gx++) { var l = document.createElementNS(svg, 'line'); l.setAttribute('x1', ox + gx * u); l.setAttribute('x2', ox + gx * u); l.setAttribute('y1', 12); l.setAttribute('y2', 268); grid.appendChild(l); }
+  for (var gy = -2; gy <= 8; gy++) { var h = document.createElementNS(svg, 'line'); h.setAttribute('y1', oy - gy * u); h.setAttribute('y2', oy - gy * u); h.setAttribute('x1', 20); h.setAttribute('x2', 306); grid.appendChild(h); }
+  [1, 2, 3, 4, 5].forEach(function (n) { var t = document.createElementNS(svg, 'text'); t.setAttribute('x', ox + n * 2 * u - 4); t.setAttribute('y', oy + 18); t.textContent = n; ticks.appendChild(t); });
+  [2, 4, 6].forEach(function (n) { var t = document.createElementNS(svg, 'text'); t.setAttribute('x', ox - 18); t.setAttribute('y', oy - n * u + 4); t.textContent = n; ticks.appendChild(t); });
+  for (var i = 0; i <= 120; i++) {
+    var x = -0.6 + i * 5.2 / 120, y = x * x - 4 * x + 3;
+    d += (i ? 'L' : 'M') + (ox + x * 2 * u).toFixed(1) + ',' + (oy - y * u).toFixed(1);
+  }
+  document.getElementById('curve').setAttribute('d', d);
+})();
+window.T = {
+  en: { title: 'Quadratic functions', course: 'Maths · Worksheet 3', page: 'Page 2 of 4', h1: 'Quadratic functions',
+    p1: 'A quadratic function has the form <i>f</i>(<i>x</i>) = <i>ax</i>² + <i>bx</i> + <i>c</i>, with <i>a</i> ≠ 0. Its graph is a parabola: it opens upwards when <i>a</i> &gt; 0 and downwards when <i>a</i> &lt; 0.',
+    p2: 'The roots are the values of <i>x</i> where the parabola crosses the horizontal axis, and the vertex is its lowest (or highest) point.',
+    ex: 'Exercises', e1: 'Find the roots of <i>f</i>(<i>x</i>).', e2: 'What is the vertex of the parabola?', e3: 'For which values of <i>x</i> is <i>f</i>(<i>x</i>) &lt; 0?' },
+  es: { title: 'Funciones cuadráticas', course: 'Matemáticas · Hoja 3', page: 'Página 2 de 4', h1: 'Funciones cuadráticas',
+    p1: 'Una función cuadrática tiene la forma <i>f</i>(<i>x</i>) = <i>ax</i>² + <i>bx</i> + <i>c</i>, con <i>a</i> ≠ 0. Su gráfica es una parábola: abre hacia arriba cuando <i>a</i> &gt; 0 y hacia abajo cuando <i>a</i> &lt; 0.',
+    p2: 'Las raíces son los valores de <i>x</i> donde la parábola corta el eje horizontal, y el vértice es su punto más bajo (o más alto).',
+    ex: 'Ejercicios', e1: 'Encuentra las raíces de <i>f</i>(<i>x</i>).', e2: '¿Cuál es el vértice de la parábola?', e3: '¿Para qué valores de <i>x</i> se cumple <i>f</i>(<i>x</i>) &lt; 0?' }
+};
+</script>
+<script src="demo.js"></script>
+</body>
+</html>
