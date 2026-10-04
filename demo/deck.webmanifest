@@ -1,0 +1,11 @@
+{
+  "name": "Rabisca demo",
+  "short_name": "Demo",
+  "start_url": "deck.html?lang=en",
+  "scope": "./",
+  "display": "fullscreen",
+  "orientation": "any",
+  "background_color": "#f3f5f8",
+  "theme_color": "#f3f5f8",
+  "icons": [{ "src": "demo-icon.png", "sizes": "512x512", "type": "image/png" }]
+}

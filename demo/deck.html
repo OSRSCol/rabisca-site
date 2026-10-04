@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#f3f5f8">
+<meta name="robots" content="noindex">
+<title>Rabisca demo</title>
+<link rel="manifest" href="deck.webmanifest">
+<style>
+  html, body { margin: 0; height: 100%; overflow: hidden; background: #f3f5f8; overscroll-behavior: none; }
+  #track { display: flex; height: 100%; transition: transform 420ms cubic-bezier(.2,.8,.2,1); touch-action: none; }
+  #track iframe { flex: 0 0 100vw; width: 100vw; height: 100%; border: 0; pointer-events: none; background: #f3f5f8; }
+</style>
+</head>
+<body>
+<!-- The video deck: the four scenes side by side, swiped one by one, with no visible controls.
+     Opens full screen from the home screen (deck.webmanifest) or after a first tap. -->
+<div id="track"></div>
+<script>
+(function () {
+  var params = new URLSearchParams(location.search);
+  var lang = params.get('lang') || 'en';
+  var order = (params.get('order') || 'aula,design,plano,estudo').split(',');
+  var track = document.getElementById('track');
+  order.forEach(function (name) {
+    var frame = document.createElement('iframe');
+    frame.src = name + '.html?lang=' + encodeURIComponent(lang);
+    frame.setAttribute('scrolling', 'no');
+    track.appendChild(frame);
+  });
+  var index = 0, startX = 0, startY = 0, tracking = false;
+  function go(i) {
+    index = Math.max(0, Math.min(order.length - 1, i));
+    track.style.transform = 'translateX(' + (-index * 100) + 'vw)';
+  }
+  function full() {
+    var el = document.documentElement;
+    if (!document.fullscreenElement && el.requestFullscreen) el.requestFullscreen({ navigationUI: 'hide' }).catch(function () {});
+  }
+  track.addEventListener('pointerdown', function (e) { tracking = true; startX = e.clientX; startY = e.clientY; full(); });
+  track.addEventListener('pointerup', function (e) {
+    if (!tracking) return;
+    tracking = false;
+    var dx = e.clientX - startX, dy = e.clientY - startY;
+    if (Math.abs(dx) > 60 && Math.abs(dx) > Math.abs(dy) * 1.5) go(index + (dx < 0 ? 1 : -1));
+  });
+  track.addEventListener('pointercancel', function () { tracking = false; });
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'ArrowRight' || e.key === 'PageDown') go(index + 1);
+    if (e.key === 'ArrowLeft' || e.key === 'PageUp') go(index - 1);
+  });
+  window.addEventListener('resize', function () { go(index); });
+})();
+</script>
+</body>
+</html>
