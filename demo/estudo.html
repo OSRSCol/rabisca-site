@@ -46,7 +46,7 @@
   var grid = document.getElementById('grid'), ticks = document.getElementById('ticks'), d = '';
   for (var gx = -2; gx <= 9; gx++) { var l = document.createElementNS(svg, 'line'); l.setAttribute('x1', ox + gx * u); l.setAttribute('x2', ox + gx * u); l.setAttribute('y1', 12); l.setAttribute('y2', 268); grid.appendChild(l); }
   for (var gy = -2; gy <= 8; gy++) { var h = document.createElementNS(svg, 'line'); h.setAttribute('y1', oy - gy * u); h.setAttribute('y2', oy - gy * u); h.setAttribute('x1', 20); h.setAttribute('x2', 306); grid.appendChild(h); }
-  [1, 2, 3, 4, 5].forEach(function (n) { var t = document.createElementNS(svg, 'text'); t.setAttribute('x', ox + n * 2 * u - 4); t.setAttribute('y', oy + 18); t.textContent = n; ticks.appendChild(t); });
+  [1, 2, 3, 4].forEach(function (n) { var t = document.createElementNS(svg, 'text'); t.setAttribute('x', ox + n * 2 * u - 4); t.setAttribute('y', oy + 18); t.textContent = n; ticks.appendChild(t); });
   [2, 4, 6].forEach(function (n) { var t = document.createElementNS(svg, 'text'); t.setAttribute('x', ox - 18); t.setAttribute('y', oy - n * u + 4); t.textContent = n; ticks.appendChild(t); });
   for (var i = 0; i <= 120; i++) {
     var x = -0.6 + i * 5.2 / 120, y = x * x - 4 * x + 3;

@@ -81,6 +81,7 @@ svg text { font-family: "Inter", system-ui, sans-serif; }
 .cards div { background: #fff; border-radius: 14px; padding: 16px 18px; border: 1px solid #efe6db; }
 .cards h3 { font-size: 16px; margin-bottom: 4px; }
 .cards p { font-size: 14px; color: #7a6655; }
+@media (max-width: 520px) { .review .meta > span:last-child { display: none; } }
 @media (max-aspect-ratio: 1/1) { .hero { grid-template-columns: 1fr; } .cards { grid-template-columns: 1fr; } .site nav a:not(.cta):not(.logo) { display: none; } }
 
 /* ---- 4. Trip plan ---- */
